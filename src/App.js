@@ -1,15 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
+//import { Card, Row, Col, Divider, Input, Button } from "antd";
 import foodList from './foods.json';
 import FoodBox from './components/FoodBox/FoodBox';
+import AddFoodForm from './components/AddFoodForm/AddFoodForm';
 
 function App() {
   const [foods, setFoods] = useState(foodList);
 
+  const handleAddFood = (addFood) => {
+    const copy = [...foods];
+    copy.push(addFood);
+    setFoods(copy);
+  };
+
   return (
     <div className="App">
       <h2>Food List</h2>
+      <AddFoodForm handleAddFood={handleAddFood} />
       <div className="display-food">
         {foods.map((food) => {
           /* return (
