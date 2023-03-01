@@ -10,8 +10,9 @@ function App() {
   return (
     <div className="App">
       <h2>Food List</h2>
-      {foods.map((food) => {
-        /* return (
+      <div className="display-food">
+        {foods.map((food) => {
+          /* return (
           <div key={food.name}>
             <p>{food.name}</p>
             <img src={food.image} width={100} alt="" />
@@ -19,9 +20,10 @@ function App() {
         );
       })} */
 
-        //Iteration 3 | Render a List of FoodBox Components
-        return <FoodBox key={food.name} food={food} />;
-      })}
+          //Iteration 3 | Render a List of FoodBox Components
+          return <FoodBox key={food.name} food={food} />;
+        })}
+      </div>
     </div>
   );
 }
