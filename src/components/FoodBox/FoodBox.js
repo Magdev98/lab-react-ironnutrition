@@ -1,9 +1,7 @@
 import { Card, Col, Button } from 'antd';
-import React, { useState } from 'react';
 
 //Iteration 2 | Create the FoodBox component
 function FoodBox(props) {
-  const { food } = props;
   return (
     <Col>
       <Card

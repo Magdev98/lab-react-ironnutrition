@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import foodList from './foods.json';
 import FoodBox from './components/FoodBox/FoodBox';
 import AddFoodForm from './components/AddFoodForm/AddFoodForm';
+import Search from './components/Search/Search';
 
 function App() {
   const [foods, setFoods] = useState(foodList);
@@ -14,10 +15,13 @@ function App() {
     setFoods(copy);
   };
 
+  // Function filter to search??
+
   return (
     <div className="App">
       <h2>Food List</h2>
       <AddFoodForm handleAddFood={handleAddFood} />
+      <Search />
       <div className="display-food">
         {foods.map((food) => {
           /* return (
