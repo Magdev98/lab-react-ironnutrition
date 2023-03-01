@@ -1,20 +1,18 @@
-import { Divider, Input } from 'antd';
+import { /* Divider, */ Input } from 'antd';
 import React, { useState } from 'react';
 
 // Iteration 5
-function Search(props) {
-  const [searchBar, setSearchBar] = useState('');
+function Search(searchFood) {
+  const [searchBar, setsearchBar] = useState('');
 
   const handleSearch = (e) => {
-    e.preventDefault();
-    setSearchBar(e.target.value);
+    setsearchBar(e.target.value);
   };
 
   return (
     <>
-      <Divider>Search</Divider>
-
-      <label>Search</label>
+      {/* <Divider>Search</Divider> */}
+      <label htmlFor="search">Search</label>
       <Input
         value={searchBar}
         type="text"

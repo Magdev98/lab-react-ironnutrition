@@ -15,13 +15,19 @@ function App() {
     setFoods(copy);
   };
 
-  // Function filter to search??
+  // Filter food for search query
+  // const searchFood = (query) => {
+  // const filteredFood = foods.filter((food) =>
+  // food.name.toLowerCase().includes(query.toLowerCase)
+  //  );
+  // };
 
   return (
     <div className="App">
       <h2>Food List</h2>
       <AddFoodForm handleAddFood={handleAddFood} />
-      <Search />
+      <Search /*  handleSearch={handleSearch} */ />
+
       <div className="display-food">
         {foods.map((food) => {
           /* return (
