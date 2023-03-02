@@ -15,7 +15,10 @@ function FoodBox(props) {
           <b>Total Calories: {props.food.calories * props.food.servings}</b>
           kcal
         </p>
-        <Button type="primary"> Delete </Button>
+        {/* Iteration 6 */}
+        <Button onClick={() => props.handleDelete(props.food)} type="primary">
+          Delete
+        </Button>
       </Card>
     </Col>
   );

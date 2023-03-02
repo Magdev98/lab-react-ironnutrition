@@ -1,9 +1,9 @@
 import { /* Divider, */ Input } from 'antd';
-import React, { useState } from 'react';
+import React from 'react';
 
 // Iteration 5
-function Search(searchFood) {
-  const [searchBar, setsearchBar] = useState('');
+function Search(props) {
+  const { searchBar, setsearchBar } = props;
 
   const handleSearch = (e) => {
     setsearchBar(e.target.value);

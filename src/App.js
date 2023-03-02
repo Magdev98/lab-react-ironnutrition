@@ -8,6 +8,7 @@ import Search from './components/Search/Search';
 
 function App() {
   const [foods, setFoods] = useState(foodList);
+  const [searchBar, setsearchBar] = useState('');
 
   const handleAddFood = (addFood) => {
     const copy = [...foods];
@@ -15,21 +16,27 @@ function App() {
     setFoods(copy);
   };
 
+  // Iteration 6 - Delete food
+  const handleDelete = (el) => {
+    const deletedFood = foods.filter((food) => {
+      return food.name !== el.name;
+    });
+    setFoods(deletedFood);
+  };
+
   // Filter food for search query
-  // const searchFood = (query) => {
-  // const filteredFood = foods.filter((food) =>
-  // food.name.toLowerCase().includes(query.toLowerCase)
-  //  );
-  // };
+  const filteredFood = foods.filter((food) => {
+    return food.name.toLowerCase().includes(searchBar.toLowerCase());
+  });
 
   return (
     <div className="App">
       <h2>Food List</h2>
       <AddFoodForm handleAddFood={handleAddFood} />
-      <Search /*  handleSearch={handleSearch} */ />
+      <Search {...{ searchBar, setsearchBar }} />
 
       <div className="display-food">
-        {foods.map((food) => {
+        {filteredFood.map((food) => {
           /* return (
           <div key={food.name}>
             <p>{food.name}</p>
@@ -39,7 +46,9 @@ function App() {
       })} */
 
           //Iteration 3 | Render a List of FoodBox Components
-          return <FoodBox key={food.name} food={food} />;
+          return (
+            <FoodBox key={food.name} food={food} handleDelete={handleDelete} />
+          );
         })}
       </div>
     </div>
